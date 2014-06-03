@@ -103,7 +103,7 @@ public class funcLib {
 		return servicePeriod;
 	}
 
-	public void printThisInfo(List<String> stops) {
+	public void printThisInfo(List<String> stops, List<String> price) {
 	    Map<String, Object> map = new HashMap<String, Object>();
 	    GoogleMap goecoder= new GoogleMap();
 	    String location="";
@@ -124,6 +124,8 @@ public class funcLib {
 				map=goecoder.findLocation(location+",香港");
 				//{status=OK, longitude=114.1923564, formattedAddress=Ngan Mok Street, Tin Hau, Hong Kong, latitude=22.2836023}
 				if(map.get("status").equals("OK")){
+					//TODO let price.get(Gobal.routeNum) in the 1st row of a route
+					//System.out.println("21085,RED_523,7,San Wai Barracks,新圍軍營, Kwan Tei,22.5071691,114.1523949,"+price.get(1)+",");
 					System.out.println(Global.id+",RED_"+Global.busId+","+i+","+map.get("engName")+","+stops.get(i)+","+map.get("district")+","+map.get("latitude")+","+map.get("longitude")+",0,0");
 					Global.id++;
 				}else{
